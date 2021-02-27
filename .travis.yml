@@ -9,8 +9,8 @@ matrix:
       env: TOXENV=py38
     - python: 3.9
       env: TOXENV=py39
-
 install:
+  - pip install poetry
   - pip install tox
 script:
   - tox -e $TOXENV

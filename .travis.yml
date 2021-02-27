@@ -3,4 +3,4 @@ python: 3.6
 install:
   - pip install tox
 script:
-  - tox -e $TOX_ENV
+  - tox .

@@ -41,18 +41,18 @@ Suite Setup                 Begin GPIO Test
 
 *** Variables ***
 
-${LED_PIN}                  Hello, world!
+${LED_PIN}                  17
 
 *** Test Cases ***
 
 LED Should On
-    Set Output Pin          17
-    Set Pin High            17
+    Set Output Pin          ${LED_PIN}
+    Set Pin High            ${LED_PIN}
     Execute Manual Step     "Is LED On?"
 
 LED Should Off
-    Set Output Pin          17
-    Set Pin Low             17
+    Set Output Pin          ${LED_PIN}
+    Set Pin Low             ${LED_PIN}
     Execute Manual Step     "Is LED Off?"
     
  

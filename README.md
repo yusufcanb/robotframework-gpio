@@ -34,22 +34,28 @@ pip install robotframework-gpio
 
 Documentation   Test Lamp is fully functional
 
-Library  Dialogs
-Library  GPIOLibrary
+Library         Dialogs
+Library         GPIOLibrary
+
+Suite Setup     Begin GPIO Test
 
 *** Test Cases ***
 
 Lamp Should On
-    Set Mode                BOARD
-    Set Warnings Off
     Set Output Pin          17
-    Set Pin High
+    Set Pin High            17
     Execute Manual Step     "Is Lamp On?"
 
 Lamp Should Off
+    Set Output Pin          17
+    Set Pin Low             17
+    Execute Manual Step     "Is Lamp Off?"
+    
+ 
+*** Keywords ***
+
+Begin GPIO Test
     Set Mode                BOARD
     Set Warnings Off
-    Set Output Pin          17
-    Set Pin Low
-    Execute Manual Step     "Is Lamp Off?"
 ```
+

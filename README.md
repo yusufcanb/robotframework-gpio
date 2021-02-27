@@ -32,24 +32,28 @@ pip install robotframework-gpio
 ```robot
 *** Settings ***
 
-Documentation   Test Lamp is fully functional
+Documentation   Test LED is fully functional
 
-Library         Dialogs
-Library         GPIOLibrary
+Library                     Dialogs
+Library                     GPIOLibrary
 
-Suite Setup     Begin GPIO Test
+Suite Setup                 Begin GPIO Test
+
+*** Variables ***
+
+${LED_PIN}                  Hello, world!
 
 *** Test Cases ***
 
-Lamp Should On
+LED Should On
     Set Output Pin          17
     Set Pin High            17
-    Execute Manual Step     "Is Lamp On?"
+    Execute Manual Step     "Is LED On?"
 
-Lamp Should Off
+LED Should Off
     Set Output Pin          17
     Set Pin Low             17
-    Execute Manual Step     "Is Lamp Off?"
+    Execute Manual Step     "Is LED Off?"
     
  
 *** Keywords ***

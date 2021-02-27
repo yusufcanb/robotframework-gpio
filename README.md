@@ -27,8 +27,29 @@ pip install robotframework-gpio
 ```
 
 
-## Keywords
+## Example
 
+```robot
+*** Settings ***
 
+Documentation   Test Lamp is fully functional
 
-## Contribution
+Library  Dialogs
+Library  GPIOLibrary
+
+*** Test Cases ***
+
+Lamp Should On
+    Set Mode                BOARD
+    Set Warnings Off
+    Set Output Pin          17
+    Set Pin High
+    Execute Manual Step     "Is Lamp On?"
+
+Lamp Should Off
+    Set Mode                BOARD
+    Set Warnings Off
+    Set Output Pin          17
+    Set Pin Low
+    Execute Manual Step     "Is Lamp Off?"
+```

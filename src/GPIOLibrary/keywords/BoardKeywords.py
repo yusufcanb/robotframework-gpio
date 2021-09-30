@@ -5,20 +5,20 @@ from robot.api.deco import keyword
 
 class BoardKeywords(object):
     @keyword("Get Mode")
-    def get_mode(self, mode):
+    def get_mode(self, mode: str):
         """
         Gets board numbering mode. Either BCM or BOARD
         """
         return GPIO.getmode()
 
     @keyword("Set Mode")
-    def set_mode(self, mode):
+    def set_mode(self, mode: str):
         """
         Sets board numbering mode. Either BCM or BOARD
         """
         if not mode in ["BCM", "BOARD"]:
             raise Exception("Mode is not present. Valid choices are: [BCM, BOARD]")
-        GPIO.setmode(mode)
+        GPIO.setmode(getattr(GPIO, mode))
 
     @keyword("Set Warnings On")
     def set_warnings_on(self):

@@ -2,7 +2,7 @@
 
 ![pypi-badge](https://img.shields.io/pypi/v/robotframework-gpio)
 ![build-badge](https://api.travis-ci.com/ycbayrak/robotframework-gpio.svg)
-![unstable](https://img.shields.io/static/v1?label=status&message=unstable&color=red)
+![stable](https://img.shields.io/static/v1?label=status&message=stable&color=green)
 
 
 Robot Framework Library for interfacing GPIO pins on executing robot files on Raspberry Pi's.
@@ -34,7 +34,7 @@ pip install robotframework-gpio
 
 Documentation   Test LED is fully functional
 
-Library                     Dialogs
+# Library                     Dialogs
 Library                     GPIOLibrary
 
 Suite Setup                 Begin GPIO Test
@@ -46,20 +46,21 @@ ${LED_PIN}                  17
 *** Test Cases ***
 
 LED Should On
-    Set Output Pin          ${LED_PIN}
-    Set Pin High            ${LED_PIN}
-    Execute Manual Step     "Is LED On?"
+    Set Output Pin                  ${LED_PIN}
+    Set Pin High                    ${LED_PIN}
+    ${pin_status}=                  Get Pin Status      ${LED_PIN}
+    Should Be Equal As Integers     ${pin_status}       1
 
 LED Should Off
-    Set Output Pin          ${LED_PIN}
-    Set Pin Low             ${LED_PIN}
-    Execute Manual Step     "Is LED Off?"
-    
+    Set Output Pin                  ${LED_PIN}
+    Set Pin Low                     ${LED_PIN}
+    ${pin_status}=                  Get Pin Status      ${LED_PIN}
+    Should Be Equal As Integers     ${pin_status}       1
  
 *** Keywords ***
 
 Begin GPIO Test
-    Set Mode                BOARD
+    Set Mode                BCM
     Set Warnings Off
 ```
 

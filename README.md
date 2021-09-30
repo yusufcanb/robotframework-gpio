@@ -1,7 +1,7 @@
 # GPIOLibrary
 
 ![pypi-badge](https://img.shields.io/pypi/v/robotframework-gpio)
-![build-badge](https://api.travis-ci.com/ycbayrak/robotframework-gpio.svg)
+[![build](https://github.com/yusufcanb/robotframework-gpio/actions/workflows/python-build.yml/badge.svg?branch=master)](https://github.com/yusufcanb/robotframework-gpio/actions/workflows/python-build.yml)
 ![stable](https://img.shields.io/static/v1?label=status&message=stable&color=green)
 
 
@@ -33,10 +33,7 @@ pip install robotframework-gpio
 *** Settings ***
 
 Documentation   Test LED is fully functional
-
-# Library                     Dialogs
 Library                     GPIOLibrary
-
 Suite Setup                 Begin GPIO Test
 
 *** Variables ***
@@ -60,7 +57,7 @@ LED Should Off
 *** Keywords ***
 
 Begin GPIO Test
-    Set Mode                BCM
+    Set Mode                        BCM
     Set Warnings Off
 ```
 

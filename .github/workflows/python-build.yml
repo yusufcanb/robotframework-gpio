@@ -1,0 +1,36 @@
+on: 
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.6', '3.7', '3.8', '3.9']
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
+      - name: Install Requirements
+        run: poetry install -v
+      - name: Execute Unit Tests
+        run: poetry run pytest
+      - name: Execute Robot Tests
+        run: poetry run robot atests/
+      - name: Upload Robot Logs
+        uses: actions/upload-artifact@v2
+        with:
+          name: log
+          path: log.html
+      - name: Upload Robot Report
+        uses: actions/upload-artifact@v2
+        with:
+          name: report
+          path: report.html

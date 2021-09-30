@@ -1,4 +1,4 @@
-name: Execute Unit & Robot Tests
+name: build
 on: 
   push:
     branches:

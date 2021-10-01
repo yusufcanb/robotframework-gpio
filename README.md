@@ -27,7 +27,11 @@ pip install robotframework-gpio
 ```
 
 
-## Example
+## Examples
+
+You can find example robot files in the `/examples` directory.
+
+### Basic Usage
 
 ```robot
 *** Settings ***
@@ -61,3 +65,61 @@ Begin GPIO Test
     Set Warnings Off
 ```
 
+
+### Remote Library Usage
+
+First install robotframework/PythonRemoteServer to Raspberry Pi;
+
+```
+pip install robotremoteserver
+```
+
+
+Then, start remote library server with following commands;
+
+```python
+from robotremoteserver import RobotRemoteServer
+from GPIOLibrary import GPIOLibrary
+
+RobotRemoteServer(GPIOLibrary(), host='0.0.0.0')
+```
+
+Finally, you can execute the robot file below from any machine within the same network of Raspberry Pi.
+
+
+``` robot
+*** Settings ***
+
+Documentation                       Example robot file for using GPIOLibrary on a remote Raspberry Pi device
+
+Library                             Remote      http://${ADDRESS}:${PORT}
+Library                             Dialogs
+Suite Setup                         Begin GPIO Test
+
+*** Variables ***
+
+${ADDRESS}    raspberrypi.local
+${PORT}       8270
+
+${LED_PIN}                          17
+
+*** Test Cases ***
+
+LED Should On
+    Set Output Pin                  ${LED_PIN}
+    Set Pin High                    ${LED_PIN}
+    Execute Manual Step             LED is on?
+    
+
+LED Should Off
+    Set Output Pin                  ${LED_PIN}
+    Set Pin Low                     ${LED_PIN}
+    Execute Manual Step             LED is off?
+ 
+*** Keywords ***
+
+Begin GPIO Test
+    Set Mode                        BCM
+    Set Warnings Off
+
+```

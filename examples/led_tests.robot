@@ -1,15 +1,12 @@
 *** Settings ***
 
-Documentation   Test LED is fully functional
-
-# Library                     Dialogs
-Library                     GPIOLibrary
-
-Suite Setup                 Begin GPIO Test
+Documentation                       Test LED is fully functional
+Library                             GPIOLibrary
+Suite Setup                         Begin GPIO Test
 
 *** Variables ***
 
-${LED_PIN}                  17
+${LED_PIN}                          17
 
 *** Test Cases ***
 

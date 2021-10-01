@@ -25,6 +25,7 @@ jobs:
               python -m pip install --upgrade pip
               pip install poetry
               poetry install -v
+              poetry install RPi.GPIO
       - name: Execute Unit Tests
         run: poetry run pytest
 
@@ -46,6 +47,7 @@ jobs:
               python -m pip install --upgrade pip
               pip install poetry
               poetry install -v
+              poetry install RPi.GPIO
       - name: Execute Robot Tests
         run: poetry run robot atests/
       - name: Upload Robot Logs

@@ -6,7 +6,8 @@
 
 
 Robot Framework Library for interfacing GPIO pins on executing robot files on Raspberry Pi's.
-For Library documentation you can visit; [GPIOLibrary](https://yusufcanb.github.io/robotframework-gpio/)
+
+For Library documentation you can visit; [https://yusufcanb.github.io/robotframework-gpio/](https://yusufcanb.github.io/robotframework-gpio/)
 
 ## Requirements
 

@@ -25,12 +25,26 @@ class GPIOKeywords(object):
         """
         GPIO.output(int(channel), GPIO.HIGH)
 
+    @keyword("Is Pin High")
+    def is_pin_high(self, channel: str) -> bool:
+        """
+        Checks given the pin is high
+        """
+        return GPIO.input(int(channel)) == GPIO.HIGH
+
     @keyword("Set Pin Low")
     def set_pin_low(self, channel: str):
         """
         Sets given pin low
         """
         GPIO.output(int(channel), GPIO.LOW)
+
+    @keyword("Is Pin Low")
+    def is_pin_high(self, channel: str) -> bool:
+        """
+        Checks the given pin is low
+        """
+        return GPIO.input(int(channel)) == GPIO.LOW
 
     @keyword("Get Pin Status")
     def get_pin_status(self, channel: str):

@@ -21,17 +21,20 @@ class GPIOKeywords(object):
     @keyword("Set Pin High")
     def set_pin_high(self, channel: str):
         """
+        Sets given pin high
         """
         GPIO.output(int(channel), GPIO.HIGH)
 
     @keyword("Set Pin Low")
     def set_pin_low(self, channel: str):
         """
+        Sets given pin low
         """
         GPIO.output(int(channel), GPIO.LOW)
 
     @keyword("Get Pin Status")
     def get_pin_status(self, channel: str):
         """
+        Returns the current status of given pin
         """
         return GPIO.input(int(channel))

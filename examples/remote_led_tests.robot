@@ -8,8 +8,8 @@ Suite Setup                         Begin GPIO Test
 
 *** Variables ***
 
-${ADDRESS}    raspberrypi.local
-${PORT}       8270
+${ADDRESS}                          raspberrypi.local
+${PORT}                             8270
 
 ${LED_PIN}                          17
 

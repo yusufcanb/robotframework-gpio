@@ -40,7 +40,7 @@ class GPIOKeywords(object):
         GPIO.output(int(channel), GPIO.LOW)
 
     @keyword("Is Pin Low")
-    def is_pin_high(self, channel: str) -> bool:
+    def is_pin_low(self, channel: str) -> bool:
         """
         Checks the given pin is low
         """

@@ -16,7 +16,7 @@ except ImportError:
 
 from GPIOLibrary.keywords import BoardKeywords, GPIOKeywords
 
-__version___ = "0.1.0"
+__version___ = "0.2.0"
 
 
 class GPIOLibrary(BoardKeywords, GPIOKeywords):

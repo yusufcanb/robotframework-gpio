@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "robotframework-gpio"
-version = "0.1.0"
+version = "0.2.0"
 description = "Robot Framework Library for interfacing GPIO pins on executing robot files on Raspberry Pi's. "
 authors = ["Yusuf Can Bayrak <yusufcanbayrak@gmail.com>"]
 license = "Apache-2.0"
